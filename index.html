@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>My Lemonade Stand</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src='app.js'></script>
+</head>
+
+<body ng-app="LemonadeApp">
+
+    <main>
+        <h1>Lemonade Central</h1>
+
+        <section ng-controller="statusController">
+            <h2>State of the Stand</h2>
+            <display-stats></display-stats>
+
+
+        </section>
+
+        <section ng-controller="ingredientsController">
+            <h2>Supplies</h2>
+            <display-supplies></display-supplies>
+
+        </section>
+
+        <section ng-controller="transactionController">
+            <h2>Today's Price</h2>
+            <input type = "number" id = "price" ng-model = "price" placeholder = "price">
+            <button id = "end" ng-click = "endDay()">End of Day</button> 
+
+        </section>
+
+
+    </main>
+</body>
+
+
+</html>
