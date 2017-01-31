@@ -5,8 +5,12 @@ module.exports = {
         $scope.supplies = GameService.getSupplies();
         console.log($scope.supplies);
 
+        $scope.quantity = '';
+        console.log($scope.quantity);
+
         $scope.buySupply = function(supply){
             GameService.addSupply(supply);
+            //  GameService.addSupply(supply, $scope.quantity);
             console.log('buying');
         }
     }

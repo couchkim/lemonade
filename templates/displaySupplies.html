@@ -1,6 +1,10 @@
-<div ng-repeat="supply in supplies">
+<div class = "ingredient" ng-repeat="supply in supplies">
     <p class = "name"> {{ supply.ingredient }}</p>
-    <input type = "number" class = "input" placeholder= "${{ supply.cost }} each">
+    <p class = "input"> ${{ supply.cost }} each</p>
+    <!--<input type = "number" class = "input" ng-model = "quantity" placeholder= "${{ supply.cost }} each">-->
     <p class = "amount" > {{ supply.amount }} in stock.</p>
+    <!--<button class = "buy" ng-click = "$ctrl.bought({ supply: $ctrl.item})">Buy</button>-->
     <button class = "buy" ng-click = "buySupply(supply)">Buy</button>
 </div>
+
+

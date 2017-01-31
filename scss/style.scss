@@ -5,8 +5,43 @@
 @include foundation-global-styles;
 @include foundation-grid;
 
-@import 'header';
 
 body{
-    background-color: mediumpurple;
+    background-color: yellow;
+}
+
+h1{
+    text-align: center;
+}
+
+.buy{
+    padding: 10px;
+    background-color: white;
+    border: 2px solid lawngreen;
+}
+
+h2{
+    @include grid-row();
+    text-align: center;
+}
+
+.statItem{
+    @include grid-column(3);
+    border: 1px solid black;
+}
+
+.ingredient{
+     @include grid-column(3);
+     border: 1px solid black;
+}
+
+#price, #end{
+    @include grid-column(3);
+    width: 30%;
+}
+
+#end{
+     padding: 15px;
+    background-color: white;
+    border: 2px solid lawngreen;
 }
