@@ -12,7 +12,7 @@ module.exports = {
             { label: 'customers', value: 0 },
         ]
 
-        let ingredients = [
+        let supplies = [
             { ingredient: 'sugar', amount: 0, cost: 1.25, cupsPer: 4 },
             { ingredient: 'lemons', amount: 0, cost: 2.00, cupsPer: 2 },
             { ingredient: 'ice', amount: 0, cost: .50, cupsPer: 1 },
@@ -23,7 +23,7 @@ module.exports = {
 
 
 
-        console.log(ingredients);
+        console.log(supplies);
         console.log(status);
 
 
@@ -39,9 +39,14 @@ module.exports = {
                 return status;
             },
 
-            getIngredients() {
+            getSupplies() {
                 
-                return ingredients;
+                return supplies;
+            },
+
+            addSupply(supply){
+                console.log('getting supplies');
+
             },
 
 

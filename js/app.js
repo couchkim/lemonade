@@ -1,7 +1,7 @@
 const app = angular.module('LemonadeApp', []);
 
 const controllers = [
-    require('./controllers/ingredientsController'),
+    require('./controllers/suppliesController'),
     require('./controllers/statusController'),
     require('./controllers/transactionController'),
 
@@ -14,6 +14,7 @@ for(let i = 0; i < controllers.length; i++){
 
 const components = [
     require('./components/displayStats'),
+    require('./components/displaySupplies'),
 ];
 
 for(let i = 0; i < components.length; i++){

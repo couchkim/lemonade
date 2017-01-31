@@ -5,7 +5,7 @@ object: {
     
     templateUrl: 'templates/displayStats.html',
     bindings: {
-        label: '<', 
+        // label: '<', 
     
     },
     controller: 'statusController',
