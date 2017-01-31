@@ -7,48 +7,70 @@ module.exports = {
 
         let status = [
             { label: 'day', value: 1 },
-            { label: 'money', value: 20 },
+            { label: 'money', value: 30 },
             { label: 'visitors', value: 0 },
             { label: 'customers', value: 0 },
         ]
 
         let supplies = [
-            { ingredient: 'sugar', amount: 0, cost: 1.25, cupsPer: 4 },
-            { ingredient: 'lemons', amount: 0, cost: 2.00, cupsPer: 2 },
-            { ingredient: 'ice', amount: 0, cost: .50, cupsPer: 1 },
-            { ingredient: 'cups', amount: 0, cost: .10, cupsPer: 1 },
+            { ingredient: 'sugar', amount: 0, cost: 1.25, perCup: .5 },
+            { ingredient: 'lemons', amount: 0, cost: 2.00, perCup: .25},
+            { ingredient: 'ice', amount: 0, cost: .50, perCup: 1 },
+            { ingredient: 'cups', amount: 0, cost: .10, perCup: 1 },
         ]
 
         let parentFee = 3;
 
+        // let price = 0;
 
-        
+
+
         return {
 
             nextDay(price) {
                 status[2].value = Math.floor((Math.random() * 20) + 1);
-                status[0].value ++;
-                status [1].value = status[1].value - parentFee;
-                // need to determine how many were served, glasses available based
-                // on supplies
-                // need to increase money based on price
+                console.log('visitors' + status[2].value);
+                // generate random visitors
+                status[0].value++;
+                // increment the day
+                status[1].value = status[1].value - parentFee;
+                // subtract the parent fee
                 
-                // need to zero out ice
-               
+                for (let i = 1; i <= status[2].value; i++){
+                    if (supplies[0].amount >= .5 && supplies[1].amount >= .25 && supplies[2].amount >= 1 && supplies[3].amount >= 1) {
+                        status[3].value = status[3].value + 1;
+                        supplies[0].amount = supplies[0].amount - supplies[0].perCup;
+                        supplies[1].amount = supplies[1].amount - supplies[1].perCup;
+                        supplies[2].amount = supplies[2].amount - supplies[2].perCup;
+                        supplies[3].amount = supplies[3].amount - supplies[3].perCup;
+                }
+                // loop over the number of visitors and see if there are enough supplies
+                // to serve them and subtract those supplies from the totals
+                
+                
+                }
+                console.log('customers' + status[3].value);
+                status[1].value = status[1].value + (status[3].value * price);
+                // need to increase money based on price
+               supplies[2].amount = 0;
+            //    status[2].value = 0;
+            //    status[3].value = 0;
+                // zero out ice
+
             },
 
 
             getStatus() {
-                
+
                 return status;
             },
 
             getSupplies() {
-                
+
                 return supplies;
             },
 
-            addSupply(supply){
+            addSupply(supply) {
                 // addSupply(supply, number){
                 console.log(supply);
                 // console.log(number);
