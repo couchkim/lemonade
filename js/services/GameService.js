@@ -6,17 +6,17 @@ module.exports = {
 
 
         let status = [
-            { label: 'day', value: 1 },
-            { label: 'money', value: 30 },
-            { label: 'visitors', value: 0 },
-            { label: 'customers', value: 0 },
+            { label: 'Day', value: 1 },
+            { label: 'Money', value: 30 },
+            { label: 'Visitors', value: 0 },
+            { label: 'Customers', value: 0 },
         ]
 
         let supplies = [
-            { ingredient: 'sugar', amount: 0, cost: 1.25, perCup: .5 },
-            { ingredient: 'lemons', amount: 0, cost: 2.00, perCup: .25},
-            { ingredient: 'ice', amount: 0, cost: .50, perCup: 1 },
-            { ingredient: 'cups', amount: 0, cost: .10, perCup: 1 },
+            { ingredient: 'Sugar', amount: 0, cost: 1.25, perCup: .5 },
+            { ingredient: 'Lemons', amount: 0, cost: 2.00, perCup: .25},
+            { ingredient: 'Ice', amount: 0, cost: .50, perCup: 1 },
+            { ingredient: 'Cups', amount: 0, cost: .10, perCup: 1 },
         ]
 
         let parentFee = 3;

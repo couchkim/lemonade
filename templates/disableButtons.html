@@ -1,0 +1,5 @@
+<button ng-show="$ctrl.thing.value > 0" ng-click="$ctrl.clicked-on({ snack: $ctrl.thing })" thing = "supply">Buy</button>
+<button disabled ng-show="$ctrl.thing.value === 0">Insufficient Funds</button> 
+
+<!--want to say if the money is less than the cost of the item
+you are attempting to buy, then button is disabled and insufficient funds appear-->

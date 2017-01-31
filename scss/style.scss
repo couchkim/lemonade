@@ -8,40 +8,52 @@
 
 body{
     background-color: yellow;
+    margin:15%;
 }
 
 h1{
     text-align: center;
+    background-color: lawngreen;
+    padding: 15px;
+    border-radius: 15px;
 }
 
 .buy{
     padding: 10px;
     background-color: white;
     border: 2px solid lawngreen;
+    border-radius: 15px;
 }
 
 h2{
     @include grid-row();
     text-align: center;
+    
 }
 
 .statItem{
     @include grid-column(3);
-    border: 1px solid black;
+    border: 2px solid lawngreen;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom:10px;
+  
 }
 
 .ingredient{
      @include grid-column(3);
-     border: 1px solid black;
+      border: 2px solid lawngreen;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom:10px;
 }
 
 #price, #end{
     @include grid-column(3);
     width: 30%;
-}
-
-#end{
      padding: 15px;
     background-color: white;
     border: 2px solid lawngreen;
+    border-radius: 15px;
 }
+
