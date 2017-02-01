@@ -3,7 +3,7 @@ module.exports = {
 name: 'displayStand',
 object: {
     
-    templateUrl: 'templates/displayStandß.html',
+    templateUrl: 'templates/displayStand.html',
     bindings: {
         // label: '<', 
     
