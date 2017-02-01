@@ -9,6 +9,7 @@
 body{
     background-color: yellow;
     margin:15%;
+    // background-image: url('https://sarahgoesorganic.files.wordpress.com/2010/08/lemonade-pitcher.gif');
 }
 
 h1{
@@ -20,8 +21,8 @@ h1{
 
 .buy{
     padding: 10px;
-    background-color: white;
-    border: 2px solid lawngreen;
+    background-color:lawngreen;
+    border: 2px solid yellow;
     border-radius: 15px;
 }
 
@@ -37,6 +38,7 @@ h2{
     border-radius: 15px;
     text-align: center;
     margin-bottom:10px;
+    background-color: lightgoldenrodyellow;
   
 }
 
@@ -46,6 +48,7 @@ h2{
     border-radius: 15px;
     text-align: center;
     margin-bottom:10px;
+    background-color: lightgoldenrodyellow;
 }
 
 #price, #end{

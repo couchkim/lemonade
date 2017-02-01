@@ -6,6 +6,7 @@
     <title>My Lemonade Stand</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://npmcdn.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.min.js"></script>
     <script src='app.js'></script>
 </head>
 
@@ -14,7 +15,18 @@
     <main>
         <h1>Lemonade Central</h1>
 
-        <section ng-controller="statusController">
+        <nav>
+            <ul>
+                <li><a ui-sref="start-game">Start New Stand</a></li>
+                <!--<li><a ui-sref="show-stand">My Stand</a></li>
+                <li><a ui-sref="show-scores">High Scores</a></li>-->
+            </ul>
+        </nav>
+
+        <ui-view></ui-view>
+
+
+        <!--<section ng-controller="statusController">
             <h2>State of the Stand</h2>
             <display-stats></display-stats>
 
@@ -29,10 +41,10 @@
 
         <section ng-controller="transactionController">
             <h2>Close Out the Day</h2>
-            <input type = "number" id = "price" ng-model = "price" placeholder = "price">
-            <button id = "end" ng-click = "endDay(price)">End of Day</button> 
+            <input type="number" id="price" ng-model="price" placeholder="price">
+            <button id="end" ng-click="endDay(price)">End of Day</button>
 
-        </section>
+        </section>-->
 
 
     </main>
