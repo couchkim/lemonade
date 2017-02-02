@@ -7,7 +7,7 @@ module.exports = {
 
         $scope.newGame = function (name) {
             GameService.startNew(name);
-            GameService.setPrices();
+            GameService.setCosts();
         }
 
     },

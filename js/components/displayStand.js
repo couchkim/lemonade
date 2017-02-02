@@ -8,7 +8,7 @@ object: {
         // label: '<', 
     
     },
-    // controller: 'standController',
+    controller: 'standController',
 }
 
 }
