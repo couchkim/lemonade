@@ -6,7 +6,7 @@ module.exports = {
         $scope.price = '';
         console.log($scope.price);
 
-        $scope.changePrice = function (price) {
+        $scope.setPrice = function (price) {
             console.log(price);
             GameService.newPrice(price);
         }

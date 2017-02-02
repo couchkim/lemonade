@@ -3,20 +3,29 @@ module.exports = {
     name: "GameService",
     func: function ($http) {
 
-       
-        function Supply(name, amount) {
+
+        function Supply(name, amount, cost) {
             this.ingredient = name;
             this.amount = amount;
-            this.cost = null;
+            this.cost = cost;
 
 
             return this;
         }
 
 
+let supplies = [];
+
+        supplies.push(new Supply('sugar', 0, 1.25));
+        supplies.push(new Supply('ice', 0, .50));
+        supplies.push(new Supply('cups', 0, .1));
+        supplies.push(new Supply('lemons', 0, 2.0));
+        
+
+
         let status = [];
 
-        let supplies = [];
+        
 
 
         let parentFee = 3;
@@ -24,6 +33,8 @@ module.exports = {
         let standId = null;
 
         let scores = [];
+
+
 
         let day = [];
 
@@ -45,7 +56,20 @@ module.exports = {
                         console.log(response);
                         for (let i = 0; i < response.data.ingredients.length; i++) {
                             let item = response.data.ingredients;
-                            item[i] = new Supply(item[i].label, item[i].value);
+                            if (item[i].label === 'sugar') {
+                                supplies[0].amount = item[i].value;
+                            }
+                            if (item[i].label === 'ice') {
+                                supplies[1].amount= item[i].value;
+                            }
+                            if (item[i].label === 'cups') {
+                                supplies[2].amount = item[i].value;
+                            }
+                            if (item[i].label === 'lemons') {
+                                supplies[3].amount = item[i].value;
+                            }
+
+                            // now if statment that if it's sugar, change the value
                         };
                         angular.copy(response.data.ingredients, supplies);
 
@@ -94,22 +118,22 @@ module.exports = {
                 $http.get("https://blooming-hamlet-70507.herokuapp.com/stand/top").then(function (response) {
                     console.log(response);
                     for (let i = 0; i < response.data.length; i++) {
-                        
+
                         // need to cap it at 25
                         scores.push(response.data[i].business.balance);
-                    // angular.copy(response.data.balance, scores);
+                        // angular.copy(response.data.balance, scores);
                         console.log(scores);
                     }
-                    
+
                 })
                 return scores;
-                
+
             },
 
             newPrice(price) {
 
                 // set price
-                $http.post("https://blooming-hamlet-70507.herokuapp.com/stand" + standId), JSON.stringify(price).then(function (response) {
+                $http.post("https://blooming-hamlet-70507.herokuapp.com/stand/" + standId), JSON.stringify(price).then(function (response) {
                     console.log(response);
 
                 })
