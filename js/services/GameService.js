@@ -1,7 +1,7 @@
 module.exports = {
 
     name: "GameService",
-    func: function ($http) {
+    func: function ($http, $interval) {
 
 
         function Supply(name, amount, cost) {
@@ -51,7 +51,11 @@ module.exports = {
                     console.log(standId);
                     // interval
 
-                    $http.get("https://blooming-hamlet-70507.herokuapp.com/stand/" + standId).then(function (response) {
+
+        
+   
+
+                    $interval(function () {$http.get("https://blooming-hamlet-70507.herokuapp.com/stand/" + standId).then(function (response) {
                         console.log(response);
                         for (let i = 0; i < response.data.ingredients.length; i++) {
                             let item = response.data.ingredients;
@@ -77,6 +81,7 @@ module.exports = {
                         console.log(status);
 
                     })
+                     }, 1000);
                 })
 
             },
