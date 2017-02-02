@@ -5,11 +5,11 @@ module.exports = {
         $scope.supplies = GameService.getSupplies();
         console.log($scope.supplies);
 
-        $scope.quantity = '';
-        console.log($scope.quantity);
+        // $scope.amount = '';
+        // console.log($scope.amount);
 
-        $scope.buySupply = function(supply){
-            GameService.addSupply(supply);
+        $scope.buySupply = function(supply, num){
+            GameService.addSupply(supply, num);
             //  GameService.addSupply(supply, $scope.quantity);
             console.log('buying');
         }
