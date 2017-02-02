@@ -5,23 +5,25 @@ module.exports = {
 
         // add ids to those to simplify the formulas below
 
-        let status = [
-            { label: 'Day', value: 1 },
-            { label: 'Money', value: 30 },
-            { label: 'Visitors', value: 0 },
-            { label: 'Customers', value: 0 },
-        ]
+        function Supply(name, amount, price) {
+            this.ingredient = name;
+            this.amount = amount;
+            this.cost = price;
 
-        let supplies = [
-            { ingredient: 'Sugar', amount: 0, cost: 1.25, perCup: .5 },
-            { ingredient: 'Lemons', amount: 0, cost: 2.00, perCup: .25 },
-            { ingredient: 'Ice', amount: 0, cost: .50, perCup: 1 },
-            { ingredient: 'Cups', amount: 0, cost: .10, perCup: 1 },
-        ]
+
+            return this;
+        }
+
+
+        let status = [];
+
+        let supplies = [];
 
         let parentFee = 3;
 
         let standId = null;
+
+        let scores = [];
 
         // let price = 0;
 
@@ -30,17 +32,55 @@ module.exports = {
         return {
 
             startNew(name) {
-                $http.post("https://blooming-hamlet-70507.herokuapp.com/stand",  JSON.stringify(name)).then(function (response) {
-
-                 
+                $http.post("https://blooming-hamlet-70507.herokuapp.com/stand", JSON.stringify(name)).then(function (response) {
                     console.log(response);
                     standId = response.data.stand_id;
                     console.log(standId);
 
+                    $http.get("https://blooming-hamlet-70507.herokuapp.com/stand/" + standId).then(function (response) {
+                        console.log(response);
+                        for (let i = 0; i < response.data.ingredients.length; i++) {
+                            let item = response.data.ingredients;
+                            item[i] = new Supply(item[i].label, item[i].value);
+                        };
+                        angular.copy(response.data.ingredients, supplies);
+                        angular.copy(response.data.business, status);
 
-                });
+                        console.log(status);
 
+                    })
+                })
 
+            },
+
+            setPrices() {
+                for (let i = 0; i < supplies.length; i++) {
+                    if (this.ingredient === 'ice') {
+                        this.cost = .50;
+                        console.log(supplies);
+                    }
+                }
+            },
+
+            // getStats() {
+            //     ($http.get("https://blooming-hamlet-70507.herokuapp.com/stand/" + standId).then(function (response) {
+
+            //         console.log(response);
+
+            //     })
+            // },
+
+            getScores() {
+                // scores = '';
+                $http.get("https://blooming-hamlet-70507.herokuapp.com/stand/top").then(function (response) {
+                    for (let i = 0; i < 25; i++) {
+                        scores.push(response.data[i].business);
+                        }
+                 
+                    
+
+                })
+                return scores;
             },
 
             nextDay(price) {

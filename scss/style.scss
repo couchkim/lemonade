@@ -33,7 +33,7 @@ h2{
 }
 
 .statItem{
-    @include grid-column(3);
+    @include grid-column(2);
     border: 2px solid lawngreen;
     border-radius: 15px;
     text-align: center;

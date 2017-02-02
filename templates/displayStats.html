@@ -1,4 +1,37 @@
-<div class = "statItem" ng-repeat="item in info">
-    <h3> {{ item.label }}</h3>
-    <p> {{ item.value }}</p>
+<h2>State of the Stand</h2>
+
+<div class = "statItem">
+    <!--<div class = "statItem" ng-repeat="item in info">-->
+    <h3> Money </h3>
+    <p> {{ info.balance }}</p>
+</div>
+
+<div class = "statItem">
+    <!--<div class = "statItem" ng-repeat="item in info">-->
+    <h3> Current Price </h3>
+    <p> {{ info.price }}</p>
+</div>
+
+<div class = "statItem">
+    <!--<div class = "statItem" ng-repeat="item in info">-->
+    <h3> Total Cups Sold </h3>
+    <p> {{ info.total_cups_sold }}</p>
+</div>
+
+<div class = "statItem">
+    <!--<div class = "statItem" ng-repeat="item in info">-->
+    <h3> Total Visitors </h3>
+    <p> {{ info.total_visitors }}</p>
+</div>
+
+<div class = "statItem">
+    <!--<div class = "statItem" ng-repeat="item in info">-->
+    <h3> Cups Sold Yesterday </h3>
+    <p> {{ info.yesterday_cups_sold }}</p>
+</div>
+
+<div class = "statItem">
+    <!--<div class = "statItem" ng-repeat="item in info">-->
+    <h3> Visitors Yesterday </h3>
+    <p> {{ info.yesterday_visitors }}</p>
 </div>

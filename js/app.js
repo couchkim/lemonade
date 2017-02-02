@@ -14,11 +14,11 @@ app.config(function ($stateProvider) {
         component: 'displayStand',
     });
 
-    // $stateProvider.state({
-    //     name: 'show-scores',
-    //     url: '/scores',
-    //     component: 'displayScores',
-    // });
+    $stateProvider.state({
+        name: 'show-scores',
+        url: '/scores',
+        component: 'displayScores',
+    });
 
     $stateProvider.state({
         name: 'home',
@@ -36,7 +36,7 @@ const controllers = [
     require('./controllers/transactionController'),
     require('./controllers/standController'),
     require('./controllers/newGameController'),
-    // require('./controllers/scoresController'),
+    require('./controllers/scoresController'),
 
 ];
 
@@ -48,7 +48,7 @@ for(let i = 0; i < controllers.length; i++){
 const components = [
     require('./components/displayStats'),
     require('./components/displaySupplies'),
-    // require('./components/displayScores'),
+    require('./components/displayScores'),
     require('./components/displayStand'),
     require('./components/newGame'),
     require('./components/disableButtons'),
