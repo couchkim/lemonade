@@ -29,6 +29,9 @@ h1{
 h2{
     @include grid-row();
     text-align: center;
+     background-color: lawngreen;
+    padding: 15px;
+    border-radius: 15px;
     
 }
 
@@ -37,8 +40,9 @@ h2{
     border: 2px solid lawngreen;
     border-radius: 15px;
     text-align: center;
-    margin-bottom:10px;
+    margin-bottom:15px;
     background-color: lightgoldenrodyellow;
+    height: 200px;
   
 }
 
@@ -49,6 +53,7 @@ h2{
     text-align: center;
     margin-bottom:10px;
     background-color: lightgoldenrodyellow;
+    height: 200px;
 }
 
 #price, #end{

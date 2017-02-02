@@ -92,11 +92,18 @@ module.exports = {
 
             getScores() {
                 $http.get("https://blooming-hamlet-70507.herokuapp.com/stand/top").then(function (response) {
-                    for (let i = 0; i < 25; i++) {
-                        scores.push(response.data[i].business);
+                    console.log(response);
+                    for (let i = 0; i < response.data.length; i++) {
+                        
+                        // need to cap it at 25
+                        scores.push(response.data[i].business.balance);
+                    // angular.copy(response.data.balance, scores);
+                        console.log(scores);
                     }
+                    
                 })
                 return scores;
+                
             },
 
             newPrice(price) {
@@ -107,40 +114,6 @@ module.exports = {
 
                 })
             },
-
-
-
-            // nextDay(price) {
-            //     status[2].value = Math.floor((Math.random() * 20) + 1);
-            //     console.log('visitors' + status[2].value);
-            //     // generate random visitors
-            //     status[0].value++;
-            //     // increment the day
-            //     status[1].value = status[1].value - parentFee;
-            //     // subtract the parent fee
-
-            //     for (let i = 1; i <= status[2].value; i++) {
-            //         if (supplies[0].amount >= .5 && supplies[1].amount >= .25 && supplies[2].amount >= 1 && supplies[3].amount >= 1) {
-            //             status[3].value = status[3].value + 1;
-            //             supplies[0].amount = supplies[0].amount - supplies[0].perCup;
-            //             supplies[1].amount = supplies[1].amount - supplies[1].perCup;
-            //             supplies[2].amount = supplies[2].amount - supplies[2].perCup;
-            //             supplies[3].amount = supplies[3].amount - supplies[3].perCup;
-            //         }
-            // loop over the number of visitors and see if there are enough supplies
-            // to serve them and subtract those supplies from the totals
-
-
-            // }
-            // console.log('customers' + status[3].value);
-            // status[1].value = status[1].value + (status[3].value * price);
-            // // need to increase money based on price
-            // supplies[2].amount = 0;
-            //    status[2].value = 0;
-            //    status[3].value = 0;
-            // zero out ice
-
-            // },
 
 
             getStatus() {
