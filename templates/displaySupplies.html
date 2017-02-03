@@ -2,6 +2,7 @@
 
 <div class = "ingredient" ng-repeat="supply in supplies">
     <h3 class = "name"> {{ supply.ingredient }}</h3>
+    <h5> (Makes {{supply.makesCups }})</h5>
     <p class = "cost"> ${{ supply.cost.toFixed(2) }} each</p>
     <p class = "amount" > {{ supply.amount }} in stock</p>
     <!--<button class = "buy" ng-click = "$ctrl.bought({ supply: $ctrl.item})">Buy</button>-->

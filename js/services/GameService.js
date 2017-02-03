@@ -4,10 +4,11 @@ module.exports = {
     func: function ($http, $interval) {
 
 
-        function Supply(name, amount, cost) {
+        function Supply(name, amount, cost, makesCups) {
             this.ingredient = name;
             this.amount = amount;
             this.cost = cost;
+            this.makesCups = makesCups;
 
 
             return this;
@@ -16,10 +17,10 @@ module.exports = {
 
         let supplies = [];
 
-        supplies.push(new Supply('sugar', 0, 1.25));
-        supplies.push(new Supply('ice', 0, .50));
-        supplies.push(new Supply('cups', 0, .1));
-        supplies.push(new Supply('lemons', 0, 2.0));
+        supplies.push(new Supply('sugar', 0, 1.25, 2));
+        supplies.push(new Supply('ice', 0, .50, 1));
+        supplies.push(new Supply('cups', 0, .1, 1));
+        supplies.push(new Supply('lemons', 0, 2.0, 4));
 
 
 
@@ -74,7 +75,7 @@ module.exports = {
                                 }
 
                             };
-                            // angular.copy(response.data.ingredients, supplies);
+                           
 
                             angular.copy(response.data.business, status);
                             day.push({ day: response.data.day, started: response.data.started_on, operating: response.data.in_business });
@@ -106,24 +107,15 @@ module.exports = {
             },
 
             getWeather() {
-                // $interval(function() {
-                //     // weather = [];
-                //     $http.get("https://blooming-hamlet-70507.herokuapp.com/weather/forecast").then(function (response) {
-                //     console.log(response);
-                //     weather.push({condition: response.data.condition, temperature: response.data.temperature});
-
-
-                // });
-
                 return weather;
-                // }, 5000);
             },
 
 
             getScores() {
                 $http.get("https://blooming-hamlet-70507.herokuapp.com/stand/top").then(function (response) {
                     console.log(response);
-                    for (let i = 0; i < response.data.length; i++) {
+                    // for (let i = 0; i < response.data.length; i++) {
+                        for (let i = 0; i < 25; i++) {
 
                         // need to cap it at 25
                         scores.push(response.data[i].business.balance);
