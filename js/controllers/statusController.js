@@ -1,9 +1,15 @@
 module.exports = {
 
     name: "statusController",
-    func: function ($scope, GameService) {
+    func: function ($scope, GameService, $interval) {
       
+        // $scope.day = $interval(function(){
+        //     GameService.getDay();
+        // }, 5000),
+
         $scope.day = GameService.getDay();
+        
+        
 
         $scope.weather = GameService.getWeather();
 

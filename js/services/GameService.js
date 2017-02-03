@@ -46,59 +46,77 @@ module.exports = {
                 $http.post("https://blooming-hamlet-70507.herokuapp.com/stand", {
                     stand_name: name,
                 }).then(function (response) {
-                    console.log(response);
+                    // console.log(response);
                     standId = response.data.stand_id;
-                    console.log(standId);
+                    // console.log(standId);
                     // interval
 
 
-        
-   
 
-                    $interval(function () {$http.get("https://blooming-hamlet-70507.herokuapp.com/stand/" + standId).then(function (response) {
-                        console.log(response);
-                        for (let i = 0; i < response.data.ingredients.length; i++) {
-                            let item = response.data.ingredients;
-                            if (item[i].label === 'sugar') {
-                                supplies[0].amount = item[i].value;
-                            }
-                            if (item[i].label === 'ice') {
-                                supplies[1].amount = item[i].value;
-                            }
-                            if (item[i].label === 'cups') {
-                                supplies[2].amount = item[i].value;
-                            }
-                            if (item[i].label === 'lemons') {
-                                supplies[3].amount = item[i].value;
-                            }
 
-                        };
-                        // angular.copy(response.data.ingredients, supplies);
 
-                        angular.copy(response.data.business, status);
-                        day.push(response.data.day, response.data.started_on, response.data.in_business);
-                        console.log(supplies);
-                        console.log(status);
+                    $interval(function () {
+                        $http.get("https://blooming-hamlet-70507.herokuapp.com/stand/" + standId).then(function (response) {
+                            // console.log(response);
+                            for (let i = 0; i < response.data.ingredients.length; i++) {
+                                let item = response.data.ingredients;
+                                if (item[i].label === 'sugar') {
+                                    supplies[0].amount = item[i].value;
+                                }
+                                if (item[i].label === 'ice') {
+                                    supplies[1].amount = item[i].value;
+                                }
+                                if (item[i].label === 'cups') {
+                                    supplies[2].amount = item[i].value;
+                                }
+                                if (item[i].label === 'lemons') {
+                                    supplies[3].amount = item[i].value;
+                                }
 
-                    })
-                     }, 2000);
+                            };
+                            // angular.copy(response.data.ingredients, supplies);
+
+                            angular.copy(response.data.business, status);
+                            day.push({ day: response.data.day, started: response.data.started_on, operating: response.data.in_business });
+                            // console.log(supplies);
+                            // console.log(status);
+                            console.log(day);
+
+                        })
+                    }, 2000);
+
+                    $interval(function () {
+                        // weather = [];
+                        $http.get("https://blooming-hamlet-70507.herokuapp.com/weather/forecast").then(function (response) {
+                            console.log(response);
+                            weather.push({ condition: response.data.condition, temperature: response.data.temperature });
+
+
+                        });
+
+                        return weather;
+                    }, 5000);
                 })
 
             },
 
             getDay() {
+
                 return day;
             },
 
             getWeather() {
-                $interval(function() {$http.get("https://blooming-hamlet-70507.herokuapp.com/weather/forecast").then(function (response) {
-                    console.log(response);
-                    weather.push(response.data.condition, response.data.temperature);
+                // $interval(function() {
+                //     // weather = [];
+                //     $http.get("https://blooming-hamlet-70507.herokuapp.com/weather/forecast").then(function (response) {
+                //     console.log(response);
+                //     weather.push({condition: response.data.condition, temperature: response.data.temperature});
 
-                });
-                console.log(weather);
+
+                // });
+
                 return weather;
-                }, 5000);
+                // }, 5000);
             },
 
 
@@ -121,7 +139,7 @@ module.exports = {
 
             newPrice(price) {
 
-                
+
                 $http.post("https://blooming-hamlet-70507.herokuapp.com/stand/update?id=" + standId, {
                     property: 'business.price',
                     set: price

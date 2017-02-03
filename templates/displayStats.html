@@ -1,15 +1,15 @@
-<h2> Today is Day {{ day[0] }}</h2>
+<h2> Today is Day {{ day[day.length-1].day }}</h2>
 
-<h2> We have been in business for {{ day[0] - day[1]}} days.
+<h2> We have been in business for {{day[day.length-1].day - day[day.length-1].started }} day(s).
 
-<h2>Tomorrow's weather will be {{ weather[0] }} and {{ weather[1].toFixed()}} degrees.</h2>
+<h2>Tomorrow's weather will be {{ weather[weather.length-1].condition }} and {{ weather[weather.length-1].temperature.toFixed()}} degrees.</h2>
 
 <h2>State of the Stand</h2>
 
 <div class = "statItem">
     <!--<div class = "statItem" ng-repeat="item in info">-->
     <h3> Money </h3>
-    <p> {{ info.balance }}</p>
+    <p> {{ info.balance.toFixed(2) }}</p>
 </div>
 
 <div class = "statItem">
