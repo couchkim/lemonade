@@ -81,7 +81,7 @@ module.exports = {
                         console.log(status);
 
                     })
-                     }, 1000);
+                     }, 2000);
                 })
 
             },
@@ -91,13 +91,14 @@ module.exports = {
             },
 
             getWeather() {
-                $http.get("https://blooming-hamlet-70507.herokuapp.com/weather/forecast").then(function (response) {
+                $interval(function() {$http.get("https://blooming-hamlet-70507.herokuapp.com/weather/forecast").then(function (response) {
                     console.log(response);
                     weather.push(response.data.condition, response.data.temperature);
 
                 });
                 console.log(weather);
                 return weather;
+                }, 5000);
             },
 
 
@@ -108,6 +109,7 @@ module.exports = {
 
                         // need to cap it at 25
                         scores.push(response.data[i].business.balance);
+                        // add cups sold
                         // angular.copy(response.data.balance, scores);
                         console.log(scores);
                     }
@@ -119,7 +121,7 @@ module.exports = {
 
             newPrice(price) {
 
-                // set price
+                
                 $http.post("https://blooming-hamlet-70507.herokuapp.com/stand/update?id=" + standId, {
                     property: 'business.price',
                     set: price
@@ -144,27 +146,18 @@ module.exports = {
 
             addSupply(supply, num) {
 
-                // add post request here
-                // supply.ingredient and supply.amount which is 1 for add
 
                 $http.post("https://blooming-hamlet-70507.herokuapp.com/stand/update?id=" + standId, {
-                    property: 'ingredient.supply',
-                    add: num
+                    property: 'ingredients.' + supply,
+                    add: num,
                 })
                     .then(function (response) {
                         console.log(response);
 
-
                         console.log(supply);
 
-
                     });
-
-
-
             },
-
-
         }
     }
 }

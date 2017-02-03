@@ -10,7 +10,7 @@ module.exports = {
 
         $scope.buySupply = function(supply, num){
             GameService.addSupply(supply, num);
-            //  GameService.addSupply(supply, $scope.quantity);
+           
             console.log('buying');
         }
     }
