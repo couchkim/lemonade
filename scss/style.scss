@@ -8,8 +8,35 @@
 
 body{
     background-color: yellow;
-    margin:15%;
+    margin-left:20%;
+    margin-right: 10%;
     // background-image: url('https://sarahgoesorganic.files.wordpress.com/2010/08/lemonade-pitcher.gif');
+}
+ul{
+     list-style: none;
+     width: 20%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    overflow: auto;
+    padding-left:  0;
+    
+     
+}
+li a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 10px 10px;
+    background-color: lawngreen;
+    text-align:center;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+li a:hover {
+    background-color: #555;
+color: white;
 }
 
 h1{
